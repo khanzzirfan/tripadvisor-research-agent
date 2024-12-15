@@ -7,7 +7,7 @@
 [![Azure Functions](https://img.shields.io/badge/Deployed%20on-Azure%20Functions-0078D4.svg?style=for-the-badge&logo=azure-functions&logoColor=white)](https://azure.microsoft.com/en-us/services/functions/)
 
 <p align="center">
-  <img src="assets/your-image.png" alt="CrewAI + Langchain AI" width="300">
+  <img src="assets/AI_logo.png" alt="CrewAI + Langchain AI" width="300">
 </p>
 
 _Intelligent Travel Planning with Autonomous AI Agents_

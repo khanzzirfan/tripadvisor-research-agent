@@ -380,3 +380,7 @@ This project is built with:
 ## Support
 
 For support, raise an issue in the repository
+
+## Article
+
+[Checkout Medium Article](https://medium.com/@khanzzirfan/building-an-intelligent-travel-planner-with-crewai-langchain-and-azure-functions-022d5557fd2e)

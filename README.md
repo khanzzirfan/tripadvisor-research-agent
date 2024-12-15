@@ -1,8 +1,29 @@
 # AI Travel Planner - Azure Function App
 
+<div align="center">
+
+[![CrewAI](https://img.shields.io/badge/Built%20with-CrewAI-blue.svg?style=for-the-badge&logo=robots&logoColor=white)](https://github.com/joaomdmoura/crewAI)
+[![LangChain](https://img.shields.io/badge/Powered%20by-LangChain-green.svg?style=for-the-badge&logo=chainlink&logoColor=white)](https://github.com/langchain-ai/langchain)
+[![Azure Functions](https://img.shields.io/badge/Deployed%20on-Azure%20Functions-0078D4.svg?style=for-the-badge&logo=azure-functions&logoColor=white)](https://azure.microsoft.com/en-us/services/functions/)
+
+<p align="center">
+  <img src="assets/your-image.png" alt="CrewAI + Langchain AI" width="300">
+</p>
+
+_Intelligent Travel Planning with Autonomous AI Agents_
+
+[Quick Start](#prerequisites) •
+[Features](#features) •
+[Documentation](#how-it-works) •
+[Contributing](#contributing)
+
+---
+
+</div>
+
 ## Overview
 
-This Azure Function application uses AI agents to create comprehensive travel plans. The system employs three specialized AI agents working in sequence to analyze destinations, provide local insights, and create detailed travel itineraries.
+This Azure Function application leverages the power of CrewAI and LangChain to create intelligent travel plans. Built on the concept of autonomous AI agents working together, the system demonstrates the practical application of collaborative AI in travel planning. The system employs three specialized AI agents working in sequence to analyze destinations, provide local insights, and create detailed travel itineraries.
 
 ## Features
 
@@ -12,6 +33,142 @@ This Azure Function application uses AI agents to create comprehensive travel pl
 - 💰 Complete budget breakdown and cost analysis
 - 🎒 Custom packing suggestions based on weather and activities
 - 🏨 Specific hotel and restaurant recommendations
+
+## Technology Stack
+
+### CrewAI Framework
+
+This project is built using [CrewAI](https://github.com/joaomdmoura/crewAI), a cutting-edge framework for orchestrating autonomous AI agents. CrewAI enables:
+
+- 🤖 Creation of specialized AI agents with distinct roles and goals
+- 🔄 Sequential task execution with agent collaboration
+- 🧠 Intelligent task delegation and process management
+- 🔍 Integration with various tools and APIs for enhanced capabilities
+
+### LangChain Integration
+
+The system utilizes [LangChain](https://github.com/langchain-ai/langchain) for:
+
+- 🛠 Tool integration and management
+- 🔎 Advanced search capabilities through SerperDev
+- 🧩 Structured output parsing and formatting
+- 📝 Enhanced text generation and processing
+
+## How It Works
+
+The application combines CrewAI's agent orchestration with LangChain's tools to create a sophisticated travel planning system:
+
+1. **Agent Creation**
+
+```python
+from crewai import Agent
+from crewai_tools import SerperDevTool
+
+agent = Agent(
+    role="City Selection Expert",
+    backstory="An expert in analyzing travel data...",
+    goal="Select the best city based on criteria...",
+    tools=[SerperDevTool()]
+)
+```
+
+2. **Task Definition**
+
+```python
+from crewai import Task
+
+task = Task(
+    description="Analyze and select the best city...",
+    agent=city_selection_expert
+)
+```
+
+3. **Crew Orchestration**
+
+```python
+from crewai import Crew
+
+crew = Crew(
+    agents=[agent1, agent2, agent3],
+    tasks=[task1, task2, task3],
+    process="sequential"
+)
+```
+
+[Previous sections remain the same: Features, AI Agents, Prerequisites...]
+
+## Advanced Configuration
+
+### CrewAI Settings
+
+Customize the crew's behavior in `travel_planner.py`:
+
+```python
+crew = Crew(
+    agents=[...],
+    tasks=[...],
+    process="sequential",  # or "hierarchical"
+    verbose=True,         # Enable detailed logging
+    memory=False,         # Disable memory for fresh starts
+    cache=True,          # Enable response caching
+    max_rpm=1000         # Rate limiting
+)
+```
+
+### LangChain Tool Integration
+
+Add or modify tools in the agent configuration:
+
+```python
+from langchain.tools import Tool
+from crewai_tools import SerperDevTool
+
+# Create custom tools
+custom_tool = Tool(
+    name="Custom Search",
+    description="...",
+    func=your_custom_function
+)
+
+# Add tools to agents
+agent = Agent(
+    role="Expert",
+    tools=[SerperDevTool(), custom_tool]
+)
+```
+
+## Development Tips
+
+### Working with CrewAI
+
+1. **Agent Design**
+
+   - Define clear, specific roles for each agent
+   - Set realistic goals and backstories
+   - Choose appropriate tools for each agent's capabilities
+
+2. **Task Optimization**
+
+   - Break down complex tasks into manageable steps
+   - Ensure clear task dependencies
+   - Provide detailed expected outputs
+
+3. **Process Selection**
+   - Use `sequential` for straightforward workflows
+   - Consider `hierarchical` for complex decision-making
+
+### LangChain Integration Tips
+
+1. **Tool Management**
+
+   - Keep tool descriptions clear and specific
+   - Handle API rate limits appropriately
+   - Implement error handling for external services
+
+2. **Output Parsing**
+   - Define structured output formats
+   - Handle edge cases in responses
+   - Validate results before processing
 
 ## AI Agents
 
@@ -205,6 +362,20 @@ Agent(
 ## License
 
 MIT
+
+## Resources
+
+- [CrewAI Documentation](https://github.com/joaomdmoura/crewAI)
+- [LangChain Documentation](https://python.langchain.com/docs/get_started/introduction)
+- [Azure Functions Python Developer Guide](https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-python)
+
+## Credits
+
+This project is built with:
+
+- CrewAI by João Moura
+- LangChain by LangChain AI
+- Azure Functions by Microsoft
 
 ## Support
 
